@@ -1,0 +1,15 @@
+[package]
+name = "usbd-microsoft-os"
+version = "0.1.0"
+edition = "2021"
+authors = ["Jędrzej Boczar <jedrzej.boczar@gmail.com>"]
+license = "MIT OR Apache-2.0"
+description = "Microsoft OS 2.0 descriptors for usb-device"
+repository = "https://github.com/jedrzejboczar/usbd-microsoft-os"
+keywords = ["no-std", "usb-device", "microsoft", "winusb", "wcid"]
+categories = ["embedded", "no-std"]
+
+[dependencies]
+usb-device = "0.2"
+utf16_lit  = { version = "2.0" }
+byte-slice-cast = { version = "1.2", default-features = false }
