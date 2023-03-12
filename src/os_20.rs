@@ -15,13 +15,6 @@ pub enum DescriptorIndex {
     SetAltEnumeration = 0x08,
 }
 
-impl DescriptorIndex {
-    /// Get little-endian bytes as used in the descriptor
-    pub const fn bytes(&self) -> [u8; 2] {
-        (*self as u16).to_le_bytes()
-    }
-}
-
 /// Microsoft OS 2.0 descriptor types
 #[repr(u16)]
 #[derive(Clone, Copy)]
@@ -463,6 +456,15 @@ impl Capabilities {
         Self::HEADER_SIZE + self.infos.len() as u8 * CapabilityInfo::TOTAL_LEN
     }
 
+
+    const fn vendor_code_descriptor_set(index: u8) -> u8 {
+        index + 1
+    }
+
+    pub(crate) fn vendor_code_to_descriptor_set(vendor_code: u8) -> Option<usize> {
+        vendor_code.checked_sub(1).map(|v| v as usize)
+    }
+
     /// Capability type passed to [`usb_device::descriptor::BosWriter`]'s `capability` method
     pub const CAPABILITY_TYPE: u8 = capability_type::PLATFORM;
 
@@ -487,7 +489,7 @@ impl Capabilities {
             let total_len = info.descriptors.total_len().to_le_bytes();
             slice_assign!(buf[pos, pos + 4] = version[0, 4]);
             slice_assign!(buf[pos + 4, pos + 6] = total_len[0, 2]);
-            buf[pos + 6] = (i + 1) as u8;
+            buf[pos + 6] = Self::vendor_code_descriptor_set(i as u8);
             buf[pos + 7] = info.alt_enum_cmd;
             pos += 8;
             i += 1;

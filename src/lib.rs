@@ -11,11 +11,15 @@ extern crate std;
 /// Re-export of utf16_lit for constructing utf16 literals in compile time
 pub extern crate utf16_lit;
 
+/// USB class definition
+pub mod class;
 /// Microsoft OS 2.0 Descriptors
 pub mod os_20;
-
 /// Windows NTDDI version definitions
 pub mod windows_version;
+
+pub use class::MsOsUsbClass;
+pub use windows_version::WindowsVersion;
 
 /// Generate UTF-16 string using [`utf16_lit::utf16_null`] and get it as little-endian bytes array
 ///
