@@ -1,4 +1,4 @@
-# usbd-microsoft-os
+# usbd-microsoft-os [![crates.io](https://img.shields.io/crates/v/usbd-microsoft-os.svg)](https://crates.io/crates/usbd-microsoft-os) [![docs.rs](https://docs.rs/usbd-microsoft-os/badge.svg)](https://docs.rs/usbd-microsoft-os)
 
 Implementation of Microsoft OS USB descriptors for [usb-device](https://crates.io/crates/usb-device).
 Currently only the new [Microsoft OS 2.0 Descriptors](https://learn.microsoft.com/en-us/windows-hardware/drivers/usbcon/microsoft-os-2-0-descriptors-specification)
