@@ -4,8 +4,8 @@
 /// Windows version allowed for the MS OS 2.0 descriptor set is Windows 8.1 Preview (NTDDI_WINBLUE).
 ///
 /// See also:
-/// https://learn.microsoft.com/en-us/windows/win32/winprog/using-the-windows-headers?redirectedfrom=MSDN#macros-for-conditional-declarations
-/// https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/wdm/nf-wdm-rtlisntddiversionavailable#parameters
+/// <https://learn.microsoft.com/en-us/windows/win32/winprog/using-the-windows-headers?redirectedfrom=MSDN#macros-for-conditional-declarations>
+/// <https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/wdm/nf-wdm-rtlisntddiversionavailable#parameters>
 #[repr(u32)]
 #[derive(Clone, Copy)]
 #[allow(missing_docs)]

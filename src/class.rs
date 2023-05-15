@@ -1,10 +1,14 @@
-// TODO: remove
-#![allow(missing_docs)]
-
 use usb_device::class_prelude::*;
 
 use crate::os_20::{Capabilities, DescriptorIndex};
 
+/// USB class responsible for handling MS OS descriptor requests
+///
+/// This class will report Microsoft OS 2.0 descriptor set as well as related BOS capabilities.
+///
+/// For performance reasons all the descriptors should be statically generated arrays. Use
+/// [`crate::os_20::DescriptorSet::descriptor`] and
+/// [`crate::os_20::Capabilities::descriptor_data`] const functions to generate the descriptors.
 pub struct MsOsUsbClass {
     /// Capabilities data obtained from [`crate::os_20::Capabilities::descriptor_data`]
     pub os_20_capabilities_data: &'static [u8],
